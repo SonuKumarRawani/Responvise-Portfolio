@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: #1f293a;
+}
+.container {
+    position: relative;
+    width: 256px;
+    height: 256px;
+    display: flex;
+    justify-content: center;
+ margin-top: 56px;
+    align-items: center;
+}
+.container span {
+    position: absolute;
+    left: 6px;
+    width: 38px;
+    height: 7px;
+    background: #2c4766;
+    border-radius: 5px;
+    transform-origin: 118px;
+    transform: scale(2.2) rotate(calc(var(--i)*(360deg / 50)));
+    animation: animateBlink 3s linear infinite;
+    animation-delay: calc(var(--i)*(3s / 50));
+}
+@keyframes animateBlink {
+    0% {
+        background: #0ef;
+    }
+    25% {
+        background: #2c4766;
+    }
+}
+.login-box {
+    position: absolute;
+    width: 400px;
+}
+.login-box form {
+    width: 100%;
+    padding: 0 50px;
+}
+h2 {
+    font-size: 2em;
+    color: #0ef;
+    text-align: center;
+}
+.input-box {
+    position: relative;
+    margin: 25px 0;
+}
+.input-box input {
+    width: 100%;
+    height: 50px;
+    background: transparent;
+    border: 2px solid #2c4766;
+    outline: none;
+    border-radius: 40px;
+    font-size: 1em;
+    color: #fff;
+    padding: 0 20px;
+    transition: .5s ease;
+}
+.input-box input:focus,
+.input-box input:valid {
+    border-color: #0ef;
+}
+.input-box label {
+    position: absolute;
+    top: 50%;
+    left: 20px;
+    transform: translateY(-50%);
+    font-size: 1em;
+    color: #fff;
+    pointer-events: none;
+    transition: .5s ease;
+}
+.input-box input:focus~label,
+.input-box input:valid~label {
+    top: 1px;
+    font-size: .8em;
+    background: #1f293a;
+    padding: 0 6px;
+    color: #0ef;
+}
+.forgot-pass {
+    margin: -15px 0 10px;
+    text-align: center;
+}
+.forgot-pass a {
+    font-size: .85em;
+    color: #fff;
+    text-decoration: none;
+}
+.forgot-pass a:hover {
+    text-decoration: underline;
+}
+.btn {
+    width: 100%;
+    height: 45px;
+    background: #0ef;
+    border: none;
+    outline: none;
+    border-radius: 40px;
+    cursor: pointer;
+    font-size: 1em;
+    color: #1f293a;
+    font-weight: 600;
+}
+.signup-link {
+    margin: 20px 0 10px;
+    text-align: center;
+}
+.signup-link a {
+    font-size: 1em;
+    color: #0ef;
+    text-decoration: none;
+    font-weight: 600;
+}
+.signup-link a:hover {
+    text-decoration: underline;
+}
+.menu-btn{
+    color: white;
+    font-size: 23px;
+    cursor: pointer;
+    display: none;
+  }
+  
+  .scrollbtn{
+    height: 40px;
+    width: 40px;
+    position: fixed;
+    right: 20px;
+    bottom: 40px;
+    background: #0078ff;
+    padding: 8px;
+    border: none;
+    outline: none;
+    border-radius: 50%;
+    cursor: pointer;
+    z-index: 500;
+    pointer-events: auto;
+  }
+  
+  .scrollbtn i{
+    text-align: center;
+    font-size: 20px;
+    color: white;
+  }
+  
+  /* navbar styling */
+  .navbar{
+    position: fixed;
+    width: 100%;
+margin-top: -620px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 2rem 8rem;
+    z-index: 500;
+    transition: 0.4s;
+  }
+  
+  .navbar.sticky{
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background: white;
+    color: #0078ff;
+    padding: 1.1rem 8rem;
+    box-shadow: 0px 6px 9px 0px rgb(0 0 0 /6%);
+  }
+  
+  .navbar .logo a{
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 30px;
+    color: white;
+  }
+  
+  .navbar.sticky .logo a{
+    color: #0078ff;
+  }
+  
+  .navbar .menu li{
+    list-style: none;
+    display: inline-block;
+    margin-left: 35px;
+    position: relative;
+  }
+  
+  .navbar .menu li a{
+    display: block;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 600;
+    color: white;
+  }
+  
+  .navbar.sticky .menu li a{
+    color: #0078ff;
+  }
+  
+  .navbar .menu li a::before{
+    content: "";
+    position: absolute;
+    width: 0%;
+    left: 0;
+    bottom: -10px;
+    height: 2px;
+    background: white;
+    transition: 0.2s;
+  }
+  
+  .navbar.sticky .menu li a::before{
+    background: #0078ff;
+  }
+  
+  .navbar .menu li a:hover:before{
+    width: 35px;
+  }
+  @media (max-width:1024px){
+    .navbar,
+    .navbar.sticky{
+        padding: 0.5rem 1.5rem;
+    }
+  
+    .about .container{
+        padding: 0 1.5rem;
+    }
+  
+    .contact .container{
+        padding: 0 1.5rem;
+    }
+  }
+  
+  @media (max-width:890px){
+    .about .container{
+        padding: 0 1rem;
+    }
+  
+    .about-content{
+        display: block;
+        padding: 25px;
+    }
+  
+    .about-content .info{
+        width: 100%;
+        display: flex;
+        padding: 0;
+    }
+  
+    .about-content .aboutme{
+        width: 100%;
+        padding: 0;
+    }
+  }
+  
+  @media (max-width:768px){
+    .navbar,
+    .navbar.sticky{
+        padding: 0.5rem 2.5rem;
+    }
+  
+    .navbar .menu{
+        position: fixed;
+        height: 100vh;
+        width: 100%;
+        left: -100%;
+        top: 0;
+        background: #0078ff;
+        color: white;
+        text-align: center;
+        padding-top: 50px;
+        transition: 0.5s;
+    }
+  
+    .navbar .menu.active{
+        left: 0;
+    }
+  
+    .navbar .menu li{
+        display: block;
+        margin: 0;
+    }
+  
+    .navbar .menu li a{
+        display: inline-block;
+        margin: 20px 0;
+        font-size: 25px;
+    }
+  
+    .navbar .menu li a:hover::before{
+        width: 0vh;
+    }
+  
+    .navbar .menu li a,
+    .navbar.sticky .menu li a{
+        color: white;
+    }
+  
+    .navbar .menu-btn{
+        display: block;
+        z-index: 999;
+    }
+  
+    .navbar.sticky .menu-btn i{
+        color: black;
+    }
+  
+    .navbar .menu-btn i.active:before{
+        content: "\f00d";
+    }
+  
+    .navbar.sticky .menu-btn i.active{
+        color: white;
+    }
+}
+    </style>
+</head>
+<body>
+    <nav class="navbar" id="navbar">
+        <div class="logo">
+            <a href="#home">PortFolio</a>
+        </div>
+        <ul class="menu" id="menu">
+            <li><a href="index.html" onclick="menu()">Home</a></li>
+            <li><a href="index.html" onclick="menu()">About</a></li>
+            <li><a href="index.html" onclick="menu()">Services</a></li>
+            <li><a href="#portfolio" onclick="menu()">PortFolio</a></li>
+            <li><a href="#contact" onclick="menu()">Contact</a></li>
+            <li><a href="login.html" onclick="menu()">Login</a></li>
+        </ul>
+        <div class="menu-btn" onclick="menu()"><i class="fa fa-bars"></i></div>
+    </nav>
+
+    <div class="container">
+        <div class="login-box">
+            <h2>Login</h2>
+        <form action="#">
+            <div class="input-box">
+                <input type="email" required>
+                <label>Email</label>
+            </div>
+            <div class="input-box">
+                <input type="password" required>
+                <label>Password</label>
+            </div>
+            <div class="forgot-pass">
+                <a href="#">Forgot your password?</a>
+            </div>
+            <button type="submit" class="btn">Login</button>
+            <div class="signup-link">
+                <a href="#">Signup</a>
+            </div>
+        </form>
+    </div>
+    <span style="--i:0;"></span>
+    <span style="--i:1;"></span>
+    <span style="--i:2;"></span>
+    <span style="--i:3;"></span>
+    <span style="--i:4;"></span>
+    <span style="--i:5;"></span>
+    <span style="--i:6;"></span>
+    <span style="--i:7;"></span>
+    <span style="--i:8;"></span>
+    <span style="--i:9;"></span>
+    <span style="--i:10;"></span>
+    <span style="--i:11;"></span>
+    <span style="--i:12;"></span>
+    <span style="--i:13;"></span>
+    <span style="--i:14;"></span>
+    <span style="--i:15;"></span>
+    <span style="--i:16;"></span>
+    <span style="--i:17;"></span>
+    <span style="--i:18;"></span>
+    <span style="--i:19;"></span>
+    <span style="--i:20;"></span>
+    <span style="--i:21;"></span>
+    <span style="--i:22;"></span>
+    <span style="--i:23;"></span>
+    <span style="--i:24;"></span>
+    <span style="--i:25;"></span>
+    <span style="--i:26;"></span>
+    <span style="--i:27;"></span>
+    <span style="--i:28;"></span>
+    <span style="--i:29;"></span>
+    <span style="--i:30;"></span>
+    <span style="--i:31;"></span>
+    <span style="--i:32;"></span>
+    <span style="--i:33;"></span>
+    <span style="--i:34;"></span>
+    <span style="--i:35;"></span>
+    <span style="--i:36;"></span>
+    <span style="--i:37;"></span>
+    <span style="--i:38;"></span>
+    <span style="--i:39;"></span>
+    <span style="--i:40;"></span>
+    <span style="--i:41;"></span>
+    <span style="--i:42;"></span>
+    <span style="--i:43;"></span>
+    <span style="--i:44;"></span>
+    <span style="--i:45;"></span>
+    <span style="--i:46;"></span>
+    <span style="--i:47;"></span>
+    <span style="--i:48;"></span>
+    <span style="--i:49;"></span>
+</div>
+<script src="script.js"></script>
+</body>
+</html>
